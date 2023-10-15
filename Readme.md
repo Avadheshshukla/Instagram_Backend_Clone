@@ -66,6 +66,16 @@ ___
     @JoinColumn(name = "fk_owner_user_id")
      -> private User postOwner;
 
+### 3 -> Authentication Token Model
+    Attribute's  
+       -> private Long tokenId;
+       -> private String tokenValue;
+       -> private LocalDateTime tokenCreationDateTime;
+
+    //mapping
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "fk_user_Id")
+       ->  User user;
 
 <!-- Usage -->
 ## Usage
