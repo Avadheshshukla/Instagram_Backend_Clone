@@ -1,4 +1,4 @@
-# <h1 align = "center"> User Management System Using Spring_Boot👤 </h1>
+# <h1 align = "center"> Instagram Backedn Clone </h1>
 ___ 
 <p align="center">
 <a href="Java url">
@@ -18,7 +18,7 @@ ___
 
 <!-- Project Description -->
 ## Overview 🪟
-<p align="center">This project, named "University Event Management System," is a robust Spring Boot application designed for managing user data efficiently. It provides a set of API endpoints that allows  you to manage students and events, perform CRUD operations, and apply the specified validations. The application will use H2 as the database for simplicity and we have use validation as well  for Age shoul be in between 18 - 25yr and First letter of name shoul be capital.
+<p align="center">This project, named "Instagram Backedn Clone" is a robust Spring Boot application designed for managing user data efficiently. It provides a set of API endpoints that allows  you to manage login, signup with mail integration , add post, deletepost and etc, perform CRUD operations, and apply the specified validations. The application will use MySQL as the database for simplicity and we have use validation.
 </p>
 
 <!-- Table of Contents -->
@@ -33,33 +33,38 @@ ___
 
 <!-- Technologies Used -->
 ## Technologies Used🧑‍💻
-- Java 8
+- Java 21
 - Spring Boot
 - Spring Web Initializer
 - Maven 
-- Spring Web Dependency  { Spring web, Lombok, Validation, H2 Databse, Spring JPA}
+- Spring Web Dependency  { Spring web, Lombok, Validation, MySQL, Spring JPA}
 
 
 <!-- Model --->
 
 ## Models Key Features🔑
-### 1 -> Student Model
-    Attribute's
-      -> StudentId (Integer)
-      -> FirstName (String)
-      -> LastName (String)
-      -> Age (Integer)
-      -> Department (Enum: ME, ECE, Civil, CSE)
- 
+### 1 -> User Model
+    Attribute's   - used authentication in here during sign in and sign up and use the token received for all user operatio
+       -> private String firstName;
+       -> private String lastName;
+       -> private Integer age;
+       -> private String email;
+       -> private String phoneNumber;
 
-### 2 -> Event Model
+
+### 2 -> Post Model
     Attributes's
-      -> EventId (Integer)
-      -> EventName (String)
-      -> LocationOfEvent (String)
-      -> Date (LocalDate)
-      -> StartTime (LocalTime)
-      -> EndTime (LocalTime)
+      -> private Integer postId;
+      -> private String postContent;
+      -> private String postCaption;
+      -> private Timestamp createDate;
+      -> private Timestamp updateDate;
+     @Enumerated(value = EnumType.STRING)
+      -> private PostType postType;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_owner_user_id")
+     -> private User postOwner;
 
 
 <!-- Usage -->
@@ -74,24 +79,16 @@ ___
 
 ### Endpoint API Reference :
 
-#### StudentController :
+#### PostController :
      Endpoints:
-         -> POST /addStudents - Add a new student
-         -> GET /allStudent - Get all students
-         -> GET /studentByID/{id} - Get student by ID
-         -> PUT /update/id/{id}/studentName - Update  student department
-         -> DELETE /deleteStudent/{id} - Delete a student
+         -> POST
+         -> GET
+         -> GET 
+         -> PUT
+         -> DELETE
+
+        signin with mail integration token based
          
-#### EventController :
-    Endpoints:
-        -> POST /addEvents - Add  new events
-        -> PUT /update/event/id/{id} - Update an event
-        -> DELETE /deleteEvent/id/{id} - Delete an event
-        -> GET /events - Get all events
-        -> GET /allEvents/date - Get all events by date
-        -> Get /eventById/{id} - Get events by id
-
-
 
  <!-- Acknowledgments -->
 ## Acknowledgments
