@@ -9,7 +9,7 @@ import java.util.Properties;
 public class EmailHandler {
 
     private static final String EMAIL_USERNAME ="avadheshshukla1636@gmail.com";
-    private static final String EMAIL_PASSWORD ="fqic qbym kyjz sjbo";
+    private static final String EMAIL_PASSWORD ="12345";
 
 
     public static boolean sendEmail(String toEmail, String subject, String body)  {
